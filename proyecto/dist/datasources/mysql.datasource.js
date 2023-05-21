@@ -8,11 +8,11 @@ const config = {
     name: 'Mysql',
     connector: 'mysql',
     url: '',
-    host: '127.0.0.1',
+    host: 'localhost',
     port: 3306,
     user: 'root',
     password: '',
-    database: ''
+    database: 'midb'
 };
 // Observe application's life cycle to disconnect the datasource when
 // application is stopped. This allows the application to be shut down

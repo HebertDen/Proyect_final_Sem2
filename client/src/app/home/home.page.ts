@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CategoriaService } from '../services/categoria.service';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,17 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public categorias: any[] = [];
+
+  constructor(
+    public categoriaServ: CategoriaService
+  )
+  {}
+
+  ngOnInit(){
+    this.categoriaServ.doGet().then((res) => {
+      this.categorias = res.data;
+    })
+  }
 
 }

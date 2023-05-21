@@ -12,7 +12,7 @@ tslib_1.__decorate([
     (0, repository_1.property)({
         type: 'number',
         id: true,
-        generated: false,
+        generated: true,
         required: true,
     }),
     tslib_1.__metadata("design:type", Number)
