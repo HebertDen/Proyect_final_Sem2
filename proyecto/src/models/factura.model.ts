@@ -10,6 +10,12 @@ export class Factura extends Entity {
   id?: string;
 
   @property({
+    type: 'number',
+    required: true,
+  })
+  num_fact: number;
+
+  @property({
     type: 'string',
     required: true,
   })
@@ -23,22 +29,28 @@ export class Factura extends Entity {
   articulos: object[];
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  subtotal: string;
+  subtotal: number;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  descuento: string;
+  descuento: number;
 
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  iva: string;
+  iva: number;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  total: number;
 
   // Define well-known properties here
 

@@ -4,7 +4,7 @@ import { CategoriaRepository } from '../repositories';
 export declare class CategoriaController {
     categoriaRepository: CategoriaRepository;
     constructor(categoriaRepository: CategoriaRepository);
-    create(categoria: Categoria): Promise<Categoria>;
+    create(categoria: Omit<Categoria, 'id'>): Promise<Categoria>;
     count(where?: Where<Categoria>): Promise<Count>;
     find(filter?: Filter<Categoria>): Promise<Categoria[]>;
     updateAll(categoria: Categoria, where?: Where<Categoria>): Promise<Count>;

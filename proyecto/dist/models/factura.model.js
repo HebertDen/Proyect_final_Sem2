@@ -22,6 +22,13 @@ tslib_1.__decorate([
         required: true,
     }),
     tslib_1.__metadata("design:type", String)
+], Factura.prototype, "num_fact", void 0);
+tslib_1.__decorate([
+    (0, repository_1.property)({
+        type: 'string',
+        required: true,
+    }),
+    tslib_1.__metadata("design:type", String)
 ], Factura.prototype, "fecha", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
@@ -33,25 +40,32 @@ tslib_1.__decorate([
 ], Factura.prototype, "articulos", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
-        type: 'string',
+        type: 'number',
         required: true,
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Number)
 ], Factura.prototype, "subtotal", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
-        type: 'string',
+        type: 'number',
         required: true,
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Number)
 ], Factura.prototype, "descuento", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
-        type: 'string',
+        type: 'number',
         required: true,
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Number)
 ], Factura.prototype, "iva", void 0);
+tslib_1.__decorate([
+    (0, repository_1.property)({
+        type: 'number',
+        required: true,
+    }),
+    tslib_1.__metadata("design:type", Number)
+], Factura.prototype, "total", void 0);
 Factura = tslib_1.__decorate([
     (0, repository_1.model)({ settings: { strict: false } }),
     tslib_1.__metadata("design:paramtypes", [Object])

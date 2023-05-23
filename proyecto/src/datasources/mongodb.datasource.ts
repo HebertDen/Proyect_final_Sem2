@@ -4,13 +4,13 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'Mongodb',
   connector: 'mongodb',
-  url: 'mongodb://root:1234@localhost:27017/facturacion',
-  host: 'localhost',
+  url: '',
+  host: '127.0.0.1',
   port: 27017,
-  user: 'root',
-  password: '1234',
+  user: '',
+  password: '',
   database: 'facturacion',
-  useNewUrlParser: false
+  useNewUrlParser: true
 };
 
 // Observe application's life cycle to disconnect the datasource when

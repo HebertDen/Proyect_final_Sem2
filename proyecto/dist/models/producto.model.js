@@ -13,7 +13,7 @@ tslib_1.__decorate([
         type: 'number',
         id: true,
         generated: true,
-        required: true,
+        required: false,
     }),
     tslib_1.__metadata("design:type", Number)
 ], Producto.prototype, "id", void 0);

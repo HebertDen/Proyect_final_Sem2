@@ -46,12 +46,13 @@ tslib_1.__decorate([
             'application/json': {
                 schema: (0, rest_1.getModelSchemaRef)(models_1.Categoria, {
                     title: 'NewCategoria',
+                    exclude: ['id'],
                 }),
             },
         },
     })),
     tslib_1.__metadata("design:type", Function),
-    tslib_1.__metadata("design:paramtypes", [models_1.Categoria]),
+    tslib_1.__metadata("design:paramtypes", [Object]),
     tslib_1.__metadata("design:returntype", Promise)
 ], CategoriaController.prototype, "create", null);
 tslib_1.__decorate([

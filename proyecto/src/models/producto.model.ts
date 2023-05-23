@@ -6,7 +6,7 @@ export class Producto extends Entity {
     type: 'number',
     id: true,
     generated: true,
-    required: true,
+    required: false,
   })
   id: number;
 

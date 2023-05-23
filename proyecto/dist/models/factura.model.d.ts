@@ -1,11 +1,13 @@
 import { Entity } from '@loopback/repository';
 export declare class Factura extends Entity {
     id?: string;
+    num_fact: string;
     fecha: string;
     articulos: object[];
-    subtotal: string;
-    descuento: string;
-    iva: string;
+    subtotal: number;
+    descuento: number;
+    iva: number;
+    total: number;
     [prop: string]: any;
     constructor(data?: Partial<Factura>);
 }
