@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
+import { Http, HttpResponse } from '@capacitor-community/http';
+import { CapacitorHttp } from '@capacitor/core';
 import { environment } from 'src/environments/environment';
-import { Http } from '@capacitor-community/http';
-import { CapacitorHttp, HttpResponse } from '@capacitor/core';
+import { Producto } from '../models/producto';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
-  public urlServer = environment.URL + '/categorias';
+export class ProductoService {
+  public urlServer = environment.URL + '/productos';
 
   constructor() { }
 
-  // Example of a GET request
   doGet = async () => {
     const options = {
       url: this.urlServer,
@@ -22,15 +22,13 @@ export class CategoriaService {
     return response;
   }
 
-  doPost = async ( nombre: string ) => {
+  doPost = async ( producto: Producto ) => {
     const options = {
       url: this.urlServer,
       headers: { accept: 'application/json', 'Content-Type': 'application/json'},
-      data: { nombre: nombre }
+      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
     };
-
     const response: HttpResponse = await CapacitorHttp.post(options);
     return response;
   };
-
 }

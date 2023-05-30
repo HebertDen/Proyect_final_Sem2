@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Producto } from 'src/app/models/producto';
+import { Http, HttpResponse } from '@capacitor-community/http'
+import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
   selector: 'app-create-product',
@@ -7,8 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateProductComponent  implements OnInit {
 
-  constructor() { }
+  public producto = new Producto();
+
+  constructor(
+    private route: Router,
+    public productService: ProductoService
+  ) { }
 
   ngOnInit() {}
+
+  onCreate(producto: Producto){
+    console.log(producto);
+    // this.producto = producto;
+    // this.productService.doPost(this.producto)
+    this.route.navigate(['/products']);
+  }
 
 }
