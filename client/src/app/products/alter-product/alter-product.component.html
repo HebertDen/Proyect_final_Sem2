@@ -1,3 +1,49 @@
-<p>
-  alter-product works!
-</p>
+<section>
+  <div>
+    <ion-button slot="fixed" color="danger"><a [routerLink]="['/products']" routerLinkActive="router-link-active">Cancelar</a></ion-button>
+  </div>
+  <div class="title">
+      <h1>Modificar producto</h1>
+  </div>
+  <div id="items">
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input type="text" value="Pantal&oacute;n Azul XCB"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Precio</ion-label>
+      <ion-input type="number" min="1" value="50000"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Detalle</ion-label>
+      <ion-textarea
+        placeholder="Descripci&oacute;n del producto"
+      ></ion-textarea>
+    </ion-item>
+    <div id="categories">
+      <h2 class="title-categories">Categor&iacute;as</h2>
+      <ion-radio-group value="strawberries">
+        <div>
+          <ion-radio value="Camisetas"></ion-radio>
+          <ion-label>Camisetas</ion-label>
+        </div>
+        <div>
+          <ion-radio value="Camisas"></ion-radio>
+          <ion-label>Camisas</ion-label>
+        </div>
+        <div>
+          <ion-radio value="Pantalones"></ion-radio>
+          <ion-label>Pantalones</ion-label>
+        </div>
+      </ion-radio-group>
+    </div>
+  </div>
+  <div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="success">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</section>
+

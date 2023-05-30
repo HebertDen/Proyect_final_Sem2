@@ -1,3 +1,8 @@
+section > div > ion-button > a {
+  text-decoration: none;
+  color: white;
+}
+
 section > div > ion-label > h1 {
   text-align: center;
 }
@@ -26,7 +31,7 @@ section > div > ion-label > h1 {
 
 #items {
   text-align: center;
-  border-bottom: 2px solid white;
+  border-bottom: 2px solid rgb(19, 236, 55);
 }
 
 #list-products > ion-list > ion-item > ion-input{

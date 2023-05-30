@@ -1,3 +1,43 @@
-<p>
-  list-products works!
-</p>
+<section>
+  <div>
+    <ion-button slot="fixed" color="danger"><a [routerLink]="['/home']" routerLinkActive="router-link-active">Regresar</a></ion-button>
+  </div>
+  <div class="title">
+    <ion-label>
+      <h1>Productos</h1>
+    </ion-label>
+  </div>
+  <div id="items">
+    <div>
+      <span>TOTAL: 2</span>
+    </div>
+  </div>
+  <div id="list">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Nombre: Pantal&oacute;n Azul XCB</ion-card-title>
+        <ion-card-subtitle>PRECIO: COP$50,000.00</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div>
+          <ion-button color="danger"
+            ><ion-icon name="trash"></ion-icon
+          ></ion-button>
+        </div>
+        <div>
+          <ion-button color="warning"
+            ><ion-icon name="create"></ion-icon
+          ></ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button>
+        <ion-icon name="add-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</section>
+
