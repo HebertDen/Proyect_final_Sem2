@@ -8,17 +8,19 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
-    path: 'invoces',
-    loadChildren: () => import('./invoces/invoces.module').then( m => m.InvocesPageModule)
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
   {
-    path: 'create',
-    loadChildren: () => import('./create/create.module').then( m => m.CreatePageModule)
+    path: 'products',
+    loadChildren: () => import('./products/products.module').then( m => m.ProductsPageModule)
   },
+
+
 ];
 
 @NgModule({

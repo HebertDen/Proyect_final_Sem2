@@ -1,0 +1,63 @@
+<section>
+  <div>
+    <ion-button slot="fixed" color="danger">Cancelar</ion-button>
+  </div>
+  <div class="title">
+    <ion-label>
+      <h1>Retomar factura</h1>
+      <h2>Numero 1234567890</h2>
+    </ion-label>
+  </div>
+  <div id="record">
+    <div>
+      <div>
+        <ion-label>Subtotal:</ion-label>
+        <ion-label>COP$133,650.00</ion-label>
+      </div>
+      <div>
+        <ion-label>IVA 19%:</ion-label>
+        <ion-label>COP$31,350.00</ion-label>
+      </div>
+    </div>
+    <div>
+      <ion-label>Descuento:</ion-label>
+      <ion-label>COP$5,000.00</ion-label>
+    </div>
+    <div>
+      <ion-label>Total:</ion-label>
+      <ion-label>COP$160,000.00</ion-label>
+    </div>
+  </div>
+  <div id="items">
+    <ion-list>
+      <ion-item>
+        <ion-label id="icon-label"><ion-icon name="trash-outline" color="danger"></ion-icon
+        ></ion-label>
+        <ion-label id="cantidad-label">Cantidad</ion-label>
+        <ion-label>Detalle</ion-label>
+        <ion-label>V/r Uni.</ion-label>
+        <ion-label>Total</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div id="list-products">
+    <ion-list>
+      <ion-item>
+        <ion-button fill="none"
+          ><ion-icon name="trash-outline" color="danger"></ion-icon
+        ></ion-button>
+        <ion-input type="number" min="1" value="2"></ion-input>
+        <ion-label>Pantal&oacute;n</ion-label>
+        <ion-label>COP$50,000.00</ion-label>
+        <ion-label>COP$100,000.00</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-fab-button color="success">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </div>
+</section>

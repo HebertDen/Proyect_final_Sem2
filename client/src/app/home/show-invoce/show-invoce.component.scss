@@ -1,0 +1,22 @@
+section > div > ion-label > h1,
+section > div > ion-label > h2 {
+  text-align: center;
+}
+
+.title {
+  margin: 20px 0;
+}
+
+#record > div {
+  margin-bottom: 5px;
+}
+
+#record > div > ion-label,
+#record > div > div > ion-label{
+  margin-right: 10px;
+}
+
+#items {
+  margin-top: 5px;
+  border-bottom: 2px solid white;
+}

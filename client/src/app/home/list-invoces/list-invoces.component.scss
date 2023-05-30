@@ -1,0 +1,41 @@
+section > div > ion-label > h1 {
+  text-align: center;
+}
+
+.title {
+  margin: 20px 0;
+}
+
+#items {
+  border-bottom: 2px solid white
+}
+
+#items > div {
+  padding: 20px;
+}
+
+ion-card > ion-card-header > ion-card-title, ion-card-subtitle {
+    margin-top: 5px;
+}
+
+ion-card > ion-card-header > div > div,
+ion-card > ion-card-content > div {
+    display: inline;
+}
+
+ion-card > ion-card-header > div > div{
+    margin-right: 5px;
+}
+
+ion-card > ion-content {
+    padding-bottom: 5px;
+}
+
+ion-content > div {
+  padding: 20px;
+}
+
+ion-content > #list {
+  padding: 0px;
+  padding: 20px 5px;
+}
