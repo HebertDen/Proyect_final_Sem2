@@ -19,10 +19,10 @@ export class ListProductsComponent implements OnInit {
     this.productoService.doGet().then((res: any) => {
       this.productos = res;
       res.foreach((element: { nombre: any; precio: any; detalle: any; categoria: any; }) =>{
-       console.log("Nombre: ", element.nombre)
-       console.log("Precio: ", element.precio)
-       console.log("Detalle: ", element.detalle)
-       console.log("Categoria: ", element.categoria.nombre)
+       console.log("Nombre: ", element.nombre);
+       console.log("Precio: ", element.precio);
+       console.log("Detalle: ", element.detalle);
+       console.log("Categoria: ", element.categoria.nombre);
       });
     });
   }
