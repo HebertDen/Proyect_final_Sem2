@@ -1,7 +1,7 @@
 import { Entity } from '@loopback/repository';
 export declare class Factura extends Entity {
     id?: string;
-    num_fact: string;
+    num_fact: number;
     fecha: string;
     articulos: object[];
     subtotal: number;

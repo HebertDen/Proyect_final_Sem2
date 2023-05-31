@@ -1,7 +1,7 @@
 import { Categoria } from './categoria';
 
 export class Producto {
-    public id!: number;
+    public id?: number;
     public nombre: string = '';
     public precio: number = 0;
     public detalle: string = '';

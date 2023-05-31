@@ -18,10 +18,10 @@ tslib_1.__decorate([
 ], Factura.prototype, "id", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
-        type: 'string',
+        type: 'number',
         required: true,
     }),
-    tslib_1.__metadata("design:type", String)
+    tslib_1.__metadata("design:type", Number)
 ], Factura.prototype, "num_fact", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({

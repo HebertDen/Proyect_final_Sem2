@@ -1,6 +1,10 @@
 <section>
   <div>
-    <ion-button slot="fixed" color="danger"><a [routerLink]="['/home']" routerLinkActive="router-link-active">Regresar</a></ion-button>
+    <ion-button slot="fixed" color="danger"
+      ><a [routerLink]="['/home']" routerLinkActive="router-link-active"
+        >Regresar</a
+      ></ion-button
+    >
   </div>
   <div class="title">
     <ion-label>
@@ -15,8 +19,8 @@
   <div id="list">
     <ion-card>
       <ion-card-header>
-        <ion-card-title>Nombre: Pantal&oacute;n Azul XCB</ion-card-title>
-        <ion-card-subtitle>PRECIO: COP$50,000.00</ion-card-subtitle>
+        <ion-card-title>ALGO1</ion-card-title>
+        <ion-card-subtitle>ALGO2</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <div>
@@ -26,18 +30,29 @@
         </div>
         <div>
           <ion-button color="warning"
-            ><ion-icon name="create"></ion-icon
+            ><a
+              [routerLink]="['./alter/1']"
+              routerLinkActive="router-link-active"
+              ><ion-icon name="create"></ion-icon></a
           ></ion-button>
         </div>
       </ion-card-content>
     </ion-card>
   </div>
+  <ion-list *ngFor="let producto of productos">
+    <ion-item>
+      <ion-label>{{ producto.nombre }}</ion-label>
+      <ion-label>{{ producto.precio }}</ion-label>
+      <ion-label>{{ producto.detalle }}</ion-label>
+      <ion-label>{{ producto.categoria.nombre }}</ion-label>
+    </ion-item>
+  </ion-list>
   <div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button>
-        <ion-icon name="add-outline"></ion-icon>
-      </ion-fab-button>
+      <a [routerLink]="['./create']" routerLinkActive="router-link-active"
+        ><ion-fab-button>
+          <ion-icon name="add-outline"></ion-icon></ion-fab-button
+      ></a>
     </ion-fab>
   </div>
 </section>
-

@@ -15,7 +15,7 @@ export class ProductoService {
   doGet = async () => {
     const options = {
       url: this.urlServer,
-      // headers: { 'X-Fake-Header': 'Max was here' },
+      headers: { accept: 'application/json'}
       // params: { },
     };
     const response: HttpResponse = await Http.get(options);
@@ -31,4 +31,26 @@ export class ProductoService {
     const response: HttpResponse = await CapacitorHttp.post(options);
     return response;
   };
+
+  doPut = async ( producto: Producto ) => {
+    const options = {
+      url: this.urlServer,
+      headers: { accept: 'application/json', 'Content-Type': 'application/json'},
+      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
+    };
+    const response: HttpResponse = await CapacitorHttp.put(options);
+    return response;
+  };
+
+  doDelete = async ( id: any ) => {
+    const options = {
+      url: this.urlServer + '/' + id,
+
+      // headers: { accept: 'application/json', 'Content-Type': 'application/json'},
+      // data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
+    };
+    const response: HttpResponse = await CapacitorHttp.delete(options);
+    return response;
+  };
+
 }

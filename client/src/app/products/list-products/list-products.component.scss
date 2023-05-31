@@ -19,6 +19,12 @@ section > div > ion-label > h1 {
   padding: 20px;
 }
 
+#list > ion-button > a {
+  text-decoration: none;
+  width: 19.6px;
+  height: 36px;
+}
+
 ion-card > ion-card-header > ion-card-title, ion-card-subtitle {
     margin-top: 5px;
 }
