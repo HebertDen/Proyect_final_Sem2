@@ -22,7 +22,7 @@ tslib_1.__decorate([
         required: true,
     }),
     tslib_1.__metadata("design:type", Number)
-], Factura.prototype, "num_fact", void 0);
+], Factura.prototype, "numero", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
         type: 'string',
@@ -30,6 +30,13 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], Factura.prototype, "fecha", void 0);
+tslib_1.__decorate([
+    (0, repository_1.property)({
+        type: 'string',
+        required: true,
+    }),
+    tslib_1.__metadata("design:type", String)
+], Factura.prototype, "hora", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
         type: 'array',

@@ -1,6 +1,6 @@
 import {Entity, model, property} from '@loopback/repository';
 
-@model({settings: {strict: false}})
+@model({settings: {strict: true}})
 export class Producto extends Entity {
   @property({
     type: 'number',
@@ -20,7 +20,7 @@ export class Producto extends Entity {
     type: 'number',
     required: true,
   })
-  valor_unitario: number;
+  precio: number;
 
   @property({
     type: 'string',

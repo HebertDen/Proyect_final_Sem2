@@ -9,19 +9,19 @@
       <span>TOTAL: 2</span>
     </div>
   </div>
-  <div id="list">
+  <div id="list" *ngFor="let factura of facturas">
     <ion-card>
       <ion-card-header>
         <div>
           <div>
-            <span>Fecha: 2023/05/20</span>
+            <span>Fecha: {{ factura.fecha }}</span>
           </div>
           <div>
-            <span>Hora: 00:00</span>
+            <span>Hora: {{ factura.hora }}</span>
           </div>
         </div>
-        <ion-card-title>N&uacute;mero: 1234567890</ion-card-title>
-        <ion-card-subtitle>TOTAL: COP$100,000.00</ion-card-subtitle>
+        <ion-card-title>N&uacute;mero: {{ factura.numero }}</ion-card-title>
+        <ion-card-subtitle>TOTAL: COP${{ factura.total }}</ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <div>
@@ -36,7 +36,10 @@
         </div>
         <div>
           <ion-button color="warning"
-            ><ion-icon name="create"></ion-icon
+            ><a
+              [routerLink]="['./alter/', factura.id]"
+              routerLinkActive="router-link-active"
+              ><ion-icon name="create"></ion-icon></a
           ></ion-button>
         </div>
       </ion-card-content>
@@ -57,7 +60,8 @@
           <a [routerLink]="['/products']" routerLinkActive="router-link-active"
             ><ion-icon name="file-tray-full-outline" color="primary">
               ></ion-icon
-            ></a>
+            ></a
+          >
         </ion-fab-button>
         <ion-fab-button>
           <a [routerLink]="['/login']" routerLinkActive="router-link-active"

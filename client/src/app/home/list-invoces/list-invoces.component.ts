@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Factura } from 'src/app/models/factura';
+import { FacturaService } from 'src/app/services/factura.service';
 
 @Component({
   selector: 'app-list-invoces',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListInvocesComponent  implements OnInit {
 
-  constructor() { }
+  public facturas: Array<Factura> = [];
 
-  ngOnInit() {}
+  constructor(
+    public facturaService: FacturaService
+  ) { }
+
+  ngOnInit() {
+    this.facturaService.doGetAll().then((res: any) => {
+      this.facturas = res.data;
+    })
+  }
 
 }
