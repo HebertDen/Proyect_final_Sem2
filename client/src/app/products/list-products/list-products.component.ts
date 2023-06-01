@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from 'src/app/models/categoria';
 import { Producto } from 'src/app/models/producto';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
@@ -10,25 +12,22 @@ import { ProductoService } from 'src/app/services/producto.service';
 export class ListProductsComponent implements OnInit {
 
   public productos: Array<Producto> = [];
+  public producto: Producto = new Producto;
+  public categoria: Categoria = new Categoria;
 
   constructor(
-    public productoService: ProductoService
+    public productoService: ProductoService,
+    public categoriaService: CategoriaService
   ) { }
 
   ngOnInit() {
-    this.productoService.doGet().then((res: any) => {
-      this.productos = res;
-      res.foreach((element: { nombre: any; precio: any; detalle: any; categoria: any; }) =>{
-       console.log("Nombre: ", element.nombre);
-       console.log("Precio: ", element.precio);
-       console.log("Detalle: ", element.detalle);
-       console.log("Categoria: ", element.categoria.nombre);
-      });
+    this.productoService.doGetAll().then((res: any) => {
+      this.productos = res.data;
     });
   }
 
-  onDelete(id: any) {
-    console.log('ID: ', id);
+  onDelete(id: any){
+    console.log("ID: ", id);
   }
 
 }

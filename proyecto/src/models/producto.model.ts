@@ -20,7 +20,7 @@ export class Producto extends Entity {
     type: 'number',
     required: true,
   })
-  precio: number;
+  valor_unitario: number;
 
   @property({
     type: 'string',

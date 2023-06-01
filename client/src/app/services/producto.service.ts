@@ -12,11 +12,19 @@ export class ProductoService {
 
   constructor() { }
 
-  doGet = async () => {
+  doGetAll = async () => {
     const options = {
       url: this.urlServer,
       headers: { accept: 'application/json'}
-      // params: { },
+    };
+    const response: HttpResponse = await Http.get(options);
+    return response;
+  }
+
+  doGet = async (id: number) => {
+    const options = {
+      url: this.urlServer + '/' + id,
+      headers: { accept: 'application/json'}
     };
     const response: HttpResponse = await Http.get(options);
     return response;

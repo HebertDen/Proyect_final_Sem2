@@ -13,13 +13,19 @@ export class Factura extends Entity {
     type: 'number',
     required: true,
   })
-  num_fact: number;
+  numero: number;
 
   @property({
     type: 'string',
     required: true,
   })
   fecha: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  hora: string;
 
   @property({
     type: 'array',

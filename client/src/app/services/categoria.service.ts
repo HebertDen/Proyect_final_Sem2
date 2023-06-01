@@ -12,21 +12,29 @@ export class CategoriaService {
   constructor() { }
 
   // Example of a GET request
-  doGet = async () => {
+  doGetAll = async () => {
     const options = {
       url: this.urlServer,
-      // headers: { 'X-Fake-Header': 'Max was here' },
-      // params: { },
+      headers: { accept: 'application/json'}
     };
     const response: HttpResponse = await Http.get(options);
     return response;
   }
 
-  doPost = async ( nombre: string ) => {
+  doGet = async (id: number) => {
+    const options = {
+      url: this.urlServer + '/' + id,
+      headers: { accept: 'application/json'}
+    };
+    const response: HttpResponse = await Http.get(options);
+    return response;
+  }
+
+  doPost = async ( producto: any ) => {
     const options = {
       url: this.urlServer,
       headers: { accept: 'application/json', 'Content-Type': 'application/json'},
-      data: { nombre: nombre }
+      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
     };
 
     const response: HttpResponse = await CapacitorHttp.post(options);
