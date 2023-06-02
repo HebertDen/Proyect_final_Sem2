@@ -6,15 +6,14 @@ export class Categoria extends Entity {
     type: 'number',
     id: true,
     generated: true,
-    required: false,
   })
-  id: number;
+  Id?: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   // Define well-known properties here
 

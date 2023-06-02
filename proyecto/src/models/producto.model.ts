@@ -6,7 +6,6 @@ export class Producto extends Entity {
     type: 'number',
     id: true,
     generated: true,
-    required: false,
   })
   id: number;
 
@@ -15,12 +14,6 @@ export class Producto extends Entity {
     required: true,
   })
   nombre: string;
-
-  @property({
-    type: 'number',
-    required: true,
-  })
-  precio: number;
 
   @property({
     type: 'string',

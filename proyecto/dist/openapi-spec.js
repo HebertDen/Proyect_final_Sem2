@@ -13,7 +13,7 @@ async function exportOpenApiSpec() {
         },
     };
     const outFile = (_c = process.argv[2]) !== null && _c !== void 0 ? _c : '';
-    const app = new application_1.ApiRestApplication(config);
+    const app = new application_1.ProyectoApplication(config);
     await app.boot();
     await app.exportOpenApiSpec(outFile);
 }

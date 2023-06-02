@@ -5,7 +5,7 @@ import {Categoria, CategoriaRelations} from '../models';
 
 export class CategoriaRepository extends DefaultCrudRepository<
   Categoria,
-  typeof Categoria.prototype.id,
+  typeof Categoria.prototype.Id,
   CategoriaRelations
 > {
   constructor(

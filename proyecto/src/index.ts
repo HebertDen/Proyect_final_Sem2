@@ -1,9 +1,9 @@
-import {ApplicationConfig, ApiRestApplication} from './application';
+import {ApplicationConfig, ProyectoApplication} from './application';
 
 export * from './application';
 
 export async function main(options: ApplicationConfig = {}) {
-  const app = new ApiRestApplication(options);
+  const app = new ProyectoApplication(options);
   await app.boot();
   await app.start();
 

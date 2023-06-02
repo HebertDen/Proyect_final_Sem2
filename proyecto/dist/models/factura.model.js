@@ -74,7 +74,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Factura.prototype, "total", void 0);
 Factura = tslib_1.__decorate([
-    (0, repository_1.model)({ settings: { strict: false } }),
+    (0, repository_1.model)({ settings: { strict: true } }),
     tslib_1.__metadata("design:paramtypes", [Object])
 ], Factura);
 exports.Factura = Factura;

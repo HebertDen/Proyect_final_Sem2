@@ -1,3 +1,4 @@
+// import {authenticate} from '@loopback/authentication';
 import {
   Count,
   CountSchema,
@@ -7,24 +8,25 @@ import {
   Where,
 } from '@loopback/repository';
 import {
-  post,
-  param,
+  del,
   get,
   getModelSchemaRef,
+  param,
   patch,
+  post,
   put,
-  del,
   requestBody,
   response,
 } from '@loopback/rest';
 import {Categoria} from '../models';
 import {CategoriaRepository} from '../repositories';
 
+// @authenticate('jwt')
 export class CategoriaController {
   constructor(
     @repository(CategoriaRepository)
-    public categoriaRepository : CategoriaRepository,
-  ) {}
+    public categoriaRepository: CategoriaRepository,
+  ) { }
 
   @post('/categorias')
   @response(200, {

@@ -11,7 +11,7 @@ async function setupApplication() {
     // host: process.env.HOST,
     // port: +process.env.PORT,
     });
-    const app = new __1.ApiRestApplication({
+    const app = new __1.ProyectoApplication({
         rest: restConfig,
     });
     await app.boot();

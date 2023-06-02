@@ -13,19 +13,18 @@ tslib_1.__decorate([
         type: 'number',
         id: true,
         generated: true,
-        required: false,
     }),
     tslib_1.__metadata("design:type", Number)
-], Categoria.prototype, "id", void 0);
+], Categoria.prototype, "Id", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
         type: 'string',
         required: true,
     }),
     tslib_1.__metadata("design:type", String)
-], Categoria.prototype, "nombre", void 0);
+], Categoria.prototype, "Nombre", void 0);
 Categoria = tslib_1.__decorate([
-    (0, repository_1.model)({ settings: { strict: false } }),
+    (0, repository_1.model)({ settings: { strict: true } }),
     tslib_1.__metadata("design:paramtypes", [Object])
 ], Categoria);
 exports.Categoria = Categoria;

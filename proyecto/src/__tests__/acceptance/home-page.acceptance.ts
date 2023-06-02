@@ -1,9 +1,9 @@
 import {Client} from '@loopback/testlab';
-import {ApiRestApplication} from '../..';
+import {ProyectoApplication} from '../..';
 import {setupApplication} from './test-helper';
 
 describe('HomePage', () => {
-  let app: ApiRestApplication;
+  let app: ProyectoApplication;
   let client: Client;
 
   before('setupApplication', async () => {

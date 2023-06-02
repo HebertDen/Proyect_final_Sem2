@@ -13,7 +13,6 @@ tslib_1.__decorate([
         type: 'number',
         id: true,
         generated: true,
-        required: false,
     }),
     tslib_1.__metadata("design:type", Number)
 ], Producto.prototype, "id", void 0);
@@ -24,13 +23,6 @@ tslib_1.__decorate([
     }),
     tslib_1.__metadata("design:type", String)
 ], Producto.prototype, "nombre", void 0);
-tslib_1.__decorate([
-    (0, repository_1.property)({
-        type: 'number',
-        required: true,
-    }),
-    tslib_1.__metadata("design:type", Number)
-], Producto.prototype, "precio", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
         type: 'string',
@@ -45,7 +37,7 @@ tslib_1.__decorate([
     tslib_1.__metadata("design:type", Number)
 ], Producto.prototype, "categoria_id", void 0);
 Producto = tslib_1.__decorate([
-    (0, repository_1.model)({ settings: { strict: false } }),
+    (0, repository_1.model)({ settings: { strict: true } }),
     tslib_1.__metadata("design:paramtypes", [Object])
 ], Producto);
 exports.Producto = Producto;

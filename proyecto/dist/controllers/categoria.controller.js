@@ -2,10 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CategoriaController = void 0;
 const tslib_1 = require("tslib");
+// import {authenticate} from '@loopback/authentication';
 const repository_1 = require("@loopback/repository");
 const rest_1 = require("@loopback/rest");
 const models_1 = require("../models");
 const repositories_1 = require("../repositories");
+// @authenticate('jwt')
 let CategoriaController = class CategoriaController {
     constructor(categoriaRepository) {
         this.categoriaRepository = categoriaRepository;

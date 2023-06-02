@@ -5,7 +5,7 @@ import {Factura, FacturaRelations} from '../models';
 
 export class FacturaRepository extends DefaultCrudRepository<
   Factura,
-  typeof Factura.prototype.id,
+  typeof Factura.prototype.Id,
   FacturaRelations
 > {
   constructor(

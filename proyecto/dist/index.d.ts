@@ -1,3 +1,3 @@
-import { ApplicationConfig, ApiRestApplication } from './application';
+import { ApplicationConfig, ProyectoApplication } from './application';
 export * from './application';
-export declare function main(options?: ApplicationConfig): Promise<ApiRestApplication>;
+export declare function main(options?: ApplicationConfig): Promise<ProyectoApplication>;

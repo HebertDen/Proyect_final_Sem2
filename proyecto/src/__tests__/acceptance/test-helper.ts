@@ -1,4 +1,4 @@
-import {ApiRestApplication} from '../..';
+import {ProyectoApplication} from '../..';
 import {
   createRestAppClient,
   givenHttpServerConfig,
@@ -14,7 +14,7 @@ export async function setupApplication(): Promise<AppWithClient> {
     // port: +process.env.PORT,
   });
 
-  const app = new ApiRestApplication({
+  const app = new ProyectoApplication({
     rest: restConfig,
   });
 
@@ -27,6 +27,6 @@ export async function setupApplication(): Promise<AppWithClient> {
 }
 
 export interface AppWithClient {
-  app: ApiRestApplication;
+  app: ProyectoApplication;
   client: Client;
 }
