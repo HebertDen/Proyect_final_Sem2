@@ -8,21 +8,21 @@
   <div id="items">
     <ion-item>
       <ion-label>Nombre</ion-label>
-      <ion-input type="text" name="nombre" [(ngModel)]="producto.nombre"></ion-input>
+      <ion-input type="text" name="nombre" [(ngModel)]="nombre"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Precio</ion-label>
-      <ion-input type="number" min="1" name="precio" [(ngModel)]="producto.precio"></ion-input>
+      <ion-input type="number" min="1" name="precio" [(ngModel)]="precio"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Detalle</ion-label>
       <ion-textarea
         placeholder="Descripci&oacute;n del producto" [maxlength]="500" name="detalle"
-        [(ngModel)]="producto.detalle"></ion-textarea>
+        [(ngModel)]="detalle"></ion-textarea>
     </ion-item>
     <div id="categories">
       <h2 class="title-categories">Categor&iacute;as</h2>
-      <ion-radio-group value="strawberries" name="categoria" [(ngModel)]="producto.categoria">
+      <ion-radio-group value="1" name="categoria" [(ngModel)]="categoria">
         <div>
           <ion-radio value="1"></ion-radio>
           <ion-label>Camisetas</ion-label>
@@ -40,7 +40,7 @@
   </div>
   <div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button color="success" (click)="onCreate(producto)">
+      <ion-fab-button color="success" (click)="onCreate()">
         <ion-icon name="checkmark-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>

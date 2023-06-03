@@ -25,6 +25,13 @@ tslib_1.__decorate([
 ], Producto.prototype, "nombre", void 0);
 tslib_1.__decorate([
     (0, repository_1.property)({
+        type: 'number',
+        required: true,
+    }),
+    tslib_1.__metadata("design:type", Number)
+], Producto.prototype, "precio", void 0);
+tslib_1.__decorate([
+    (0, repository_1.property)({
         type: 'string',
     }),
     tslib_1.__metadata("design:type", String)

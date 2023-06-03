@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Preferences } from '@capacitor/preferences';
 import { Categoria } from 'src/app/models/categoria';
 import { Producto } from 'src/app/models/producto';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -14,6 +15,7 @@ export class ListProductsComponent implements OnInit {
   public productos: Array<Producto> = [];
   public producto: Producto = new Producto;
   public categoria: Categoria = new Categoria;
+  public cantidad: number = 0;
 
   constructor(
     public productoService: ProductoService,
@@ -21,13 +23,19 @@ export class ListProductsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.productoService.doGetCount().then((res: any) => {
+      this.cantidad = res.data.count;
+    });
+
     this.productoService.doGetAll().then((res: any) => {
       this.productos = res.data;
     });
   }
 
-  onDelete(id: any){
-    console.log("ID: ", id);
+  onDelete(id: any) {
+    this.productoService.doDelete(id).then((res: any) => {
+      console.log("Eliminado", res);
+    })
   }
 
 }

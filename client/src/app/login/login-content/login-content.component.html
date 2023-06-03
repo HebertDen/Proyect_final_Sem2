@@ -1,18 +1,20 @@
 <section>
+  {{ email }}
+  {{ password }}
   <div>
     <ion-label>Correo electr&oacute;nico</ion-label>
     <ion-item>
       <ion-input type="email" fill="" helperText="Enter a valid email" errorText="Invalid email" ngModel
-        email></ion-input>
+        email [(ngModel)]="email"></ion-input>
     </ion-item>
   </div>
   <div>
     <ion-label>Contrase&ntilde;a</ion-label>
     <ion-item>
-      <ion-input type="password" fill="none"></ion-input>
+      <ion-input type="password" fill="none" [(ngModel)]="password"></ion-input>
     </ion-item>
   </div>
   <div>
-    <ion-button fill="outline" color="primary"><a [routerLink]="['/home']" routerLinkActive="router-link-active">Entrar</a></ion-button>
+    <ion-button fill="outline" color="primary" (click)="onLogin()">Entrar</ion-button>
   </div>
 </section>

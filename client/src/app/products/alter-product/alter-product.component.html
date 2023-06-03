@@ -8,31 +8,31 @@
   <div id="items">
     <ion-item>
       <ion-label>Nombre</ion-label>
-      <ion-input type="text" value="Pantal&oacute;n Azul XCB"></ion-input>
+      <ion-input type="text" [(ngModel)]="nombre" name="nombre" value="{{ producto.nombre }}" placeholder="{{ producto.nombre }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Precio</ion-label>
-      <ion-input type="number" min="1" value="50000"></ion-input>
+      <ion-input type="number" min="1" [(ngModel)]="precio" value="{{ producto.precio }}" placeholder="{{ producto.precio }}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Detalle</ion-label>
       <ion-textarea
-        placeholder="Descripci&oacute;n del producto"
+        placeholder="{{ producto.detalle }}" [(ngModel)]="detalle"
       ></ion-textarea>
     </ion-item>
     <div id="categories">
       <h2 class="title-categories">Categor&iacute;as</h2>
-      <ion-radio-group value="strawberries">
+      <ion-radio-group value="Camisetas" [(ngModel)]="categoria">
         <div>
-          <ion-radio value="Camisetas"></ion-radio>
+          <ion-radio value="1"></ion-radio>
           <ion-label>Camisetas</ion-label>
         </div>
         <div>
-          <ion-radio value="Camisas"></ion-radio>
+          <ion-radio value="2"></ion-radio>
           <ion-label>Camisas</ion-label>
         </div>
         <div>
-          <ion-radio value="Pantalones"></ion-radio>
+          <ion-radio value="3"></ion-radio>
           <ion-label>Pantalones</ion-label>
         </div>
       </ion-radio-group>
@@ -40,7 +40,7 @@
   </div>
   <div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button color="success">
+      <ion-fab-button color="success" (click)="onUpdate()">
         <ion-icon name="checkmark-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>

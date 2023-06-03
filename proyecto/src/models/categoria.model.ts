@@ -7,13 +7,13 @@ export class Categoria extends Entity {
     id: true,
     generated: true,
   })
-  Id?: number;
+  id?: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  Nombre: string;
+  nombre: string;
 
   // Define well-known properties here
 

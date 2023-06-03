@@ -21,7 +21,7 @@ export class ProductoService {
     return response;
   }
 
-  doGet = async (id: number) => {
+  doGet = async (id: any) => {
     const options = {
       url: this.urlServer + '/' + id,
       headers: { accept: 'application/json'}
@@ -30,21 +30,33 @@ export class ProductoService {
     return response;
   }
 
+  doGetCount = async () => {
+    const options = {
+      url: this.urlServer + '/count',
+      header: { accept: 'application/json' }
+    };
+    const response: HttpResponse = await Http.get(options);
+    return response;
+  }
+
   doPost = async ( producto: Producto ) => {
+    console.log(producto);
+    producto.categoria = producto.categoria.valueOf();
+    console.log(producto.categoria.valueOf());
     const options = {
       url: this.urlServer,
-      headers: { accept: 'application/json', 'Content-Type': 'application/json'},
-      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
+      headers: { accept: 'application/json', 'Content-Type': 'application/json' },
+      data: { nombre:  producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria_id: producto.categoria }
     };
     const response: HttpResponse = await CapacitorHttp.post(options);
     return response;
   };
 
-  doPut = async ( producto: Producto ) => {
+  doPut = async ( producto: any ) => {
     const options = {
       url: this.urlServer,
       headers: { accept: 'application/json', 'Content-Type': 'application/json'},
-      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
+      data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria_id: producto.categoria }
     };
     const response: HttpResponse = await CapacitorHttp.put(options);
     return response;
@@ -53,9 +65,7 @@ export class ProductoService {
   doDelete = async ( id: any ) => {
     const options = {
       url: this.urlServer + '/' + id,
-
-      // headers: { accept: 'application/json', 'Content-Type': 'application/json'},
-      // data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria: producto.categoria }
+      headers: { accept: 'application/json' }
     };
     const response: HttpResponse = await CapacitorHttp.delete(options);
     return response;

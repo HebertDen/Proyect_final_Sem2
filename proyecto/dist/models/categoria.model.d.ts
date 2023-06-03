@@ -1,7 +1,7 @@
 import { Entity } from '@loopback/repository';
 export declare class Categoria extends Entity {
-    Id?: number;
-    Nombre: string;
+    id?: number;
+    nombre: string;
     [prop: string]: any;
     constructor(data?: Partial<Categoria>);
 }
