@@ -7,12 +7,26 @@ section > div > ion-label > h1 {
 }
 
 #items {
-  border-bottom: 2px solid rgb(19, 236, 55)
+  border-bottom: 2px solid rgb(19, 236, 55);
 }
 
 #items > div {
   padding: 20px;
 }
+
+#items > ion-button > ion-icon{
+  width: 19.6px !important;
+  height: 36px !important;
+}
+
+#items > ion-button > a {
+  text-decoration: none !important;
+}
+
+// #items > ion-button > a > ion-icon[name='eye'],
+// #items > ion-button > a > ion-icon[name='create']{
+//   text-decoration: none;
+// }
 
 ion-card > ion-card-header > ion-card-title, ion-card-subtitle {
     margin-top: 5px;

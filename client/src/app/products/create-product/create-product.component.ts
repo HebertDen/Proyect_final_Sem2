@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
-import { Http, HttpResponse } from '@capacitor-community/http'
 import { ProductoService } from 'src/app/services/producto.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-product',
@@ -11,6 +11,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 })
 export class CreateProductComponent  implements OnInit {
 
+  public form!: FormGroup;
   public producto = new Producto();
   public nombre: string = '';
   public precio: number = 0;
@@ -22,7 +23,23 @@ export class CreateProductComponent  implements OnInit {
     public productService: ProductoService
   ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.form = new FormGroup({
+      nombre: new FormControl('', [
+        Validators.required,
+        Validators.minLength(9)
+      ]),
+      precio: new FormControl('', [
+        Validators.required
+      ]),
+      detalle: new FormControl('', [
+        Validators.maxLength(500)
+      ]),
+      categoria: new FormControl('', [
+        Validators.required
+      ]),
+    });
+  }
 
   onCreate(){
     this.producto.nombre = this.nombre;

@@ -1,28 +1,76 @@
 <section>
   <div>
-    <ion-button slot="fixed" color="danger"><a [routerLink]="['/products']" routerLinkActive="router-link-active">Cancelar</a></ion-button>
+    <ion-button slot="fixed" color="danger"
+      ><a [routerLink]="['/products']" routerLinkActive="router-link-active"
+        >Cancelar</a
+      ></ion-button
+    >
   </div>
   <div class="title">
-      <h1>Crear producto</h1>
+    <h1>Crear producto</h1>
   </div>
-  <div id="items">
+  <div id="items" [formGroup]="form">
     <ion-item>
       <ion-label>Nombre</ion-label>
-      <ion-input type="text" name="nombre" [(ngModel)]="nombre"></ion-input>
+      <ion-input
+        type="text"
+        name="nombre"
+        [(ngModel)]="nombre"
+        formControlName="nombre"
+      ></ion-input>
+      <div *ngIf="form.controls['nombre'].errors">
+        <ion-text
+          *ngIf="form.controls['nombre'].errors['required']"
+          color="danger"
+          >Campo requerido</ion-text
+        >
+        <ion-text
+          *ngIf="form.controls['nombre'].errors['minLength']"
+          color="danger"
+          >M&iacute;nimo 9 caracteres</ion-text
+        >
+      </div>
     </ion-item>
     <ion-item>
       <ion-label>Precio</ion-label>
-      <ion-input type="number" min="1" name="precio" [(ngModel)]="precio"></ion-input>
+      <ion-input
+        type="number"
+        min="1"
+        name="precio"
+        [(ngModel)]="precio"
+        formControlName="precio"
+      ></ion-input>
+      <div *ngIf="form.controls['precio'].errors">
+        <ion-text
+          *ngIf="form.controls['precio'].errors['required']"
+          color="danger"
+          >Campo requerido</ion-text
+        >
+      </div>
     </ion-item>
     <ion-item>
-      <ion-label>Detalle</ion-label>
+      <ion-label position="stacked">Detalle</ion-label>
       <ion-textarea
-        placeholder="Descripci&oacute;n del producto" [maxlength]="500" name="detalle"
-        [(ngModel)]="detalle"></ion-textarea>
+        placeholder="Descripci&oacute;n del producto"
+        name="detalle"
+        id="detalle"
+        [(ngModel)]="detalle"
+        formControlName="detalle"
+      ></ion-textarea>
+      <div *ngIf="form.controls['detalle'].errors">
+        <ion-text *ngIf="form.controls['detalle'].errors['maxLength']"
+          >M&aacute;ximo 500 caracteres</ion-text
+        >
+      </div>
     </ion-item>
     <div id="categories">
       <h2 class="title-categories">Categor&iacute;as</h2>
-      <ion-radio-group value="1" name="categoria" [(ngModel)]="categoria">
+      <ion-radio-group
+        name="categoria"
+        [allowEmptySelection]="true"
+        [(ngModel)]="categoria"
+        formControlName="categoria"
+      >
         <div>
           <ion-radio value="1"></ion-radio>
           <ion-label>Camisetas</ion-label>
@@ -36,6 +84,13 @@
           <ion-label>Pantalones</ion-label>
         </div>
       </ion-radio-group>
+      <div *ngIf="form.controls['categoria'].errors">
+        <ion-text
+          *ngIf="form.controls['categoria'].errors['required']"
+          color="danger"
+          >Campo requerido</ion-text
+        >
+      </div>
     </div>
   </div>
   <div>

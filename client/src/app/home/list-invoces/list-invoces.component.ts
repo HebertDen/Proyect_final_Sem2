@@ -10,12 +10,16 @@ import { FacturaService } from 'src/app/services/factura.service';
 export class ListInvocesComponent  implements OnInit {
 
   public facturas: Array<Factura> = [];
+  public cantidad: number = 0;
 
   constructor(
     public facturaService: FacturaService
   ) { }
 
   ngOnInit() {
+    this.facturaService.doGetCount().then((res: any) => {
+      this.cantidad = res.data.count;
+    })
     this.facturaService.doGetAll().then((res: any) => {
       this.facturas = res.data;
     })

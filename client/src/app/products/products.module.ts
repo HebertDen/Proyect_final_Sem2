@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
@@ -16,7 +16,8 @@ import { AlterProductComponent } from './alter-product/alter-product.component';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProductsPageRoutingModule
+    ProductsPageRoutingModule,
+    ReactiveFormsModule
   ],
   declarations: [ProductsPage, ListProductsComponent, CreateProductComponent, AlterProductComponent]
 })

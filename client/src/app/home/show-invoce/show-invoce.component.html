@@ -1,34 +1,50 @@
 <section>
   <div>
-    <ion-button slot="fixed" color="danger"><a [routerLink]="['/home']" routerLinkActive="router-link-active">Cancelar</a></ion-button>
+    <ion-button slot="fixed" color="danger"
+      ><a [routerLink]="['/home']" routerLinkActive="router-link-active"
+        >Cancelar</a
+      ></ion-button
+    >
   </div>
   <div class="title">
     <ion-label>
       <h1>Factura</h1>
-      <h2>Numero 1234567890</h2>
+      <h2>Numero {{ factura.numero }}</h2>
+      <div>
+        <div>
+          <ion-text>Fecha: {{ factura.fecha }}</ion-text>
+        </div>
+        <div>
+          <ion-text>Hora: {{ factura.hora }}</ion-text>
+        </div>
+      </div>
     </ion-label>
   </div>
   <div id="record">
     <div>
       <div>
         <ion-label>Subtotal:</ion-label>
-        <ion-label>COP$133,650.00</ion-label>
+        <ion-label>COP&#36; {{ factura.subtotal }}</ion-label>
+      </div>
+    </div>
+    <div>
+      <div>
+        <ion-label>IVA 19&#37;:</ion-label>
+        <ion-label>COP&#36; {{ factura.iva }}</ion-label>
       </div>
       <div>
-        <ion-label>IVA 19%:</ion-label>
-        <ion-label>COP$31,350.00</ion-label>
+        <ion-label>Descuento:</ion-label>
+        <ion-label>COP&#36; {{ factura.descuento }}</ion-label>
       </div>
     </div>
     <div>
       <ion-label>Total:</ion-label>
-      <ion-label>COP$160,000.00</ion-label>
+      <ion-label>COP&#36; {{ factura.total }}</ion-label>
     </div>
   </div>
   <div id="items">
     <ion-list>
       <ion-item>
-        <ion-label><ion-icon name="trash-outline" color="danger"></ion-icon
-        ></ion-label>
         <ion-label>Cantidad</ion-label>
         <ion-label>Detalle</ion-label>
         <ion-label>V/r Uni.</ion-label>
@@ -37,17 +53,12 @@
     </ion-list>
   </div>
   <div id="list-products">
-    <ion-list>
+    <ion-list *ngFor="let articulo of articulos">
       <ion-item>
-        <ion-label>
-          <ion-button fill="none"
-            ><ion-icon name="trash-outline" color="danger"></ion-icon
-          ></ion-button>
-        </ion-label>
-        <ion-label>1</ion-label>
-        <ion-label>Pantal&oacute;n Azul mmsfds...</ion-label>
-        <ion-label>COP$50,000.00</ion-label>
-        <ion-label>COP$100,000.00</ion-label>
+        <ion-label>{{ articulo.cantidad }}</ion-label>
+        <ion-label>{{ articulo.detalle }}</ion-label>
+        <ion-label>COP&#36;{{ articulo.valor_unitario }}</ion-label>
+        <ion-label>COP&#36;{{ articulo.importe }}</ion-label>
       </ion-item>
     </ion-list>
   </div>

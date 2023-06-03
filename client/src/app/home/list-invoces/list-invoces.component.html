@@ -6,7 +6,7 @@
   </div>
   <div id="items">
     <div>
-      <span>TOTAL: 2</span>
+      <span>TOTAL: {{ cantidad }}</span>
     </div>
   </div>
   <div id="list" *ngFor="let factura of facturas">
@@ -14,10 +14,10 @@
       <ion-card-header>
         <div>
           <div>
-            <span>Fecha: {{ factura.fecha }}</span>
+            <ion-text>Fecha: {{ factura.fecha }}</ion-text>
           </div>
           <div>
-            <span>Hora: {{ factura.hora }}</span>
+            <ion-text>Hora: {{ factura.hora }}</ion-text>
           </div>
         </div>
         <ion-card-title>N&uacute;mero: {{ factura.numero }}</ion-card-title>
@@ -26,8 +26,12 @@
       <ion-card-content>
         <div>
           <ion-button color="primary"
-            ><ion-icon name="eye"></ion-icon
-          ></ion-button>
+            ><a
+              [routerLink]="['./show/', factura.id]"
+              routerLinkActive="router-link-active"
+              ><ion-icon name="eye"></ion-icon
+            ></a>
+          </ion-button>
         </div>
         <div>
           <ion-button color="danger"

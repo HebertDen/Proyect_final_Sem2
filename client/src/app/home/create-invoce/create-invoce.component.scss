@@ -34,6 +34,11 @@ section > div > ion-label > h1 {
   border-bottom: 2px solid rgb(19, 236, 55);
 }
 
-#list-products > ion-list > ion-item > ion-input{
-  max-width: 100px;
+#items > ion-list > ion-item > ion-item {
+  font-size: 10px !important;
+  text-align: center !important;
+}
+
+#input-list-item > ion-input{
+  max-width: 20px;
 }
