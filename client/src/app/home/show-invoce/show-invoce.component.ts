@@ -31,8 +31,4 @@ export class ShowInvoceComponent  implements OnInit {
     })
   }
 
-  onDelete(id: any){
-    console.log('Hola');
-  }
-
 }

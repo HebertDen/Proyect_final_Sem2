@@ -33,6 +33,12 @@ export class CreateInvoceComponent implements OnInit {
     });
   }
 
+  sendInvoce(factura: Factura){
+    this.facturaService.doPost(factura).then((res: any) => {
+      console.log('Enviada: ', res.status);
+    })
+  }
+
   onCreate() {
     console.log("hola");
     let date: Date = new Date();
@@ -54,32 +60,11 @@ export class CreateInvoceComponent implements OnInit {
           item.importe = item.valor_unitario * count;
         }
       }
-      // console.log('Contador: ', count);
-      // console.log('Item creado: ', item);
       if (item.cantidad !== 0) {
         this.articulos.push(item);
       }
-      /* PEDAZO INTERESANTE
-      if (this.articulos.length == 0) {
-        this.articulos.push(item);
-        console.log('No hay creado');
-      } else {
-        for (let i = 0; i < this.articulos.length; i++) {
-          if (this.articulos[i].detalle === item.detalle) {
-            this.articulos[i].cantidad = item.cantidad;
-            this.articulos[i].importe = item.importe;
-            console.log('Se encontro');
-          } else if (i === this.articulos.length) {
-            console.log('No se encontro');
-            this.articulos.push(item);
-          }
-          console.log('Algo paso');
-        }
-      } */
       count = 0;
     }
-    console.log(this.arrayAux);
-    console.log(this.articulos);
     this.factura.numero = min + Math.floor(Math.random() * max)
     this.factura.articulos = this.articulos;
     this.factura.fecha = date.toLocaleDateString();
@@ -91,46 +76,22 @@ export class CreateInvoceComponent implements OnInit {
     iva = 1.19;
     if (subtotal > 100000) {
       descuento = 20000;
+    } else{
+      descuento = 0;
     }
     this.factura.subtotal = subtotal;
     this.factura.descuento = descuento;
     total = (subtotal * iva) - descuento;
     this.factura.total = total;
-    console.log(this.factura);
-    // console.log(this.articulos);
-    // this.route.navigate(['/home']);
+    this.sendInvoce(this.factura);
+    this.route.navigate(['/home']);
   }
-
-  // countItems() {
-  //   let count: number = 0;
-  //   let dato: any = {
-  //     cantidad: 0,
-  //     detalle: '',
-  //   }
-  //   // ----------------------------------------
-  //   for (let i = 0; i < this.productos.length; i++) {
-  //     for (let index = 0; index < this.arrayAux.length; index++) {
-  //       if (this.arrayAux[index].detalle == this.productos[i].detalle) {
-  //         count++;
-  //         dato.detalle = this.arrayAux[index].detalle;
-  //       }
-  //     }
-  //     dato.cantidad = count;
-  //     console.log('Dato: ', dato);
-  //     this.arrayCantidad.push(dato);
-  //     console.log('Contador: ', count);
-  //     count = 0;
-  //     dato.detalle = '';
-  //   }
-  // }
 
   onCart(detalle: string, precio: number) {
     let item: Item = new Item();
     item.detalle = detalle;
     item.valor_unitario = precio;
-    // console.log(item);
     this.arrayAux.push(item);
-    // console.log(this.arrayAux);
   }
 
 }

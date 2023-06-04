@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Factura } from 'src/app/models/factura';
 import { FacturaService } from 'src/app/services/factura.service';
 
@@ -13,6 +14,7 @@ export class ListInvocesComponent  implements OnInit {
   public cantidad: number = 0;
 
   constructor(
+    public route: Router,
     public facturaService: FacturaService
   ) { }
 
@@ -23,6 +25,12 @@ export class ListInvocesComponent  implements OnInit {
     this.facturaService.doGetAll().then((res: any) => {
       this.facturas = res.data;
     })
+  }
+  onDelete(id: string){
+    this.facturaService.doDelete(id).then((res: any) => {
+      console.log('Eliminada: ', res.status);
+    });
+    this.route.navigate(['/home']);
   }
 
 }

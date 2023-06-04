@@ -1,61 +1,61 @@
 <section>
   <div>
-    <ion-button slot="fixed" color="danger"><a [routerLink]="['/home']" routerLinkActive="router-link-active">Cancelar</a></ion-button>
+    <ion-button slot="fixed" color="danger"
+      ><a [routerLink]="['/home']" routerLinkActive="router-link-active"
+        >Cancelar</a
+      ></ion-button
+    >
   </div>
   <div class="title">
     <ion-label>
       <h1>Retomar factura</h1>
-      <h2>Numero 1234567890</h2>
+      <h2>N&uacute;mero {{ factura.numero }}</h2>
     </ion-label>
   </div>
   <div id="record">
     <div>
       <div>
         <ion-label>Subtotal:</ion-label>
-        <ion-label>COP$133,650.00</ion-label>
+        <ion-label>COP&#36;{{ factura.subtotal }}</ion-label>
       </div>
       <div>
         <ion-label>IVA 19%:</ion-label>
-        <ion-label>COP$31,350.00</ion-label>
+        <ion-label>COP&#36;{{ factura.iva }}</ion-label>
       </div>
     </div>
     <div>
       <ion-label>Descuento:</ion-label>
-      <ion-label>COP$5,000.00</ion-label>
+      <ion-label>COP&#36;{{ factura.descuento }}</ion-label>
     </div>
     <div>
       <ion-label>Total:</ion-label>
-      <ion-label>COP$160,000.00</ion-label>
+      <ion-label>COP&#36;{{ factura.total }}</ion-label>
     </div>
   </div>
-  <div id="items">
-    <ion-list>
-      <ion-item>
-        <ion-label id="icon-label"><ion-icon name="trash-outline" color="danger"></ion-icon
-        ></ion-label>
-        <ion-label id="cantidad-label">Cantidad</ion-label>
-        <ion-label>Detalle</ion-label>
-        <ion-label>V/r Uni.</ion-label>
-        <ion-label>Total</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div id="list-products">
-    <ion-list>
-      <ion-item>
-        <ion-button fill="none"
-          ><ion-icon name="trash-outline" color="danger"></ion-icon
-        ></ion-button>
-        <ion-input type="number" min="1" value="2"></ion-input>
-        <ion-label>Pantal&oacute;n</ion-label>
-        <ion-label>COP$50,000.00</ion-label>
-        <ion-label>COP$100,000.00</ion-label>
-      </ion-item>
-    </ion-list>
+  <div *ngFor="let articulo of articulos">
+    <ion-card>
+      <ion-card-header>
+        <ion-item>
+          <ion-button color="danger" (click)="onDelete(articulo.detalle)"
+            ><ion-icon name="trash"></ion-icon
+          ></ion-button>
+          <ion-label
+            ><strong
+              >Total&#58; COP&#36;{{ articulo.importe }}</strong
+            ></ion-label
+          >
+        </ion-item>
+        <ion-card-title>{{ articulo.detalle }}</ion-card-title>
+        <ion-card-subtitle>
+          Precio&#58; COP&#36;{{ articulo.valor_unitario }}
+        </ion-card-subtitle>
+        <ion-label>Cantidad: {{ articulo.cantidad }}</ion-label>
+      </ion-card-header>
+    </ion-card>
   </div>
   <div>
     <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button color="success">
+      <ion-fab-button color="success" (click)="onUpdate(id)">
         <ion-icon name="checkmark-outline"></ion-icon>
       </ion-fab-button>
     </ion-fab>

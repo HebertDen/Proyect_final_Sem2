@@ -26,11 +26,6 @@
           (click)="onCart(producto.detalle, producto.precio)"
           ><ion-icon name="cart"></ion-icon
         ></ion-button>
-        <div *ngFor="let dato of arrayCantidad">
-          <div>
-            <ion-label>Cantidad: {{ dato.cantidad }}</ion-label>
-          </div>
-        </div>
       </ion-card-header>
     </ion-card>
   </div>

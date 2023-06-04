@@ -42,24 +42,16 @@
       <ion-label>COP&#36; {{ factura.total }}</ion-label>
     </div>
   </div>
-  <div id="items">
-    <ion-list>
-      <ion-item>
-        <ion-label>Cantidad</ion-label>
-        <ion-label>Detalle</ion-label>
-        <ion-label>V/r Uni.</ion-label>
-        <ion-label>Total</ion-label>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div id="list-products">
-    <ion-list *ngFor="let articulo of articulos">
-      <ion-item>
-        <ion-label>{{ articulo.cantidad }}</ion-label>
-        <ion-label>{{ articulo.detalle }}</ion-label>
-        <ion-label>COP&#36;{{ articulo.valor_unitario }}</ion-label>
-        <ion-label>COP&#36;{{ articulo.importe }}</ion-label>
-      </ion-item>
-    </ion-list>
+  <div *ngFor="let articulo of articulos">
+    <ion-card>
+      <ion-card-header>
+        <ion-label><strong>Total&#58; COP&#36;{{ articulo.importe }}</strong></ion-label>
+        <ion-card-title>{{ articulo.detalle }}</ion-card-title>
+        <ion-card-subtitle>
+          Precio&#58; COP&#36;{{ articulo.valor_unitario }}
+        </ion-card-subtitle>
+        <ion-label>Cantidad&#58; {{ articulo.cantidad }}</ion-label>
+      </ion-card-header>
+    </ion-card>
   </div>
 </section>

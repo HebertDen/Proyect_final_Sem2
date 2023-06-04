@@ -50,10 +50,10 @@ export class FacturaService {
     return response;
   };
 
-  doPut = async ( factura: Factura ) => {
+  doPut = async ( factura: Factura, id: string ) => {
     console.log(factura);
     const options = {
-      url: this.urlServer,
+      url: this.urlServer + '/' + id,
       headers: { accept: 'application/json', 'Content-Type': 'application/json' },
       data: { numero: factura.numero, fecha: factura.fecha, hora: factura.hora, articulos: factura.articulos, subtotal: factura.subtotal, iva: factura.iva, descuento: factura.descuento, total: factura.total }
     };
