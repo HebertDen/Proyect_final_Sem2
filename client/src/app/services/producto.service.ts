@@ -52,9 +52,9 @@ export class ProductoService {
     return response;
   };
 
-  doPut = async ( producto: any ) => {
+  doPut = async ( producto: Producto, id: any ) => {
     const options = {
-      url: this.urlServer,
+      url: this.urlServer + '/' + id,
       headers: { accept: 'application/json', 'Content-Type': 'application/json'},
       data: { nombre: producto.nombre, precio: producto.precio, detalle: producto.detalle, categoria_id: producto.categoria }
     };

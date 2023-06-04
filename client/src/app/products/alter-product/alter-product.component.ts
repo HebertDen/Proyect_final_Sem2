@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Categoria } from 'src/app/models/categoria';
 import { Producto } from 'src/app/models/producto';
+import { CategoriaService } from 'src/app/services/categoria.service';
 import { ProductoService } from 'src/app/services/producto.service';
 
 @Component({
@@ -16,16 +18,19 @@ export class AlterProductComponent  implements OnInit {
   public precio: number = 0;
   public detalle: string = '';
   public categoria: number = 0;
+  public categorias: Array<Categoria> = [];
   public producto: Producto = new Producto();
   public id: string = '';
 
   constructor(
     public route: Router,
     public router: ActivatedRoute,
-    public productoService: ProductoService
+    public productoService: ProductoService,
+    public categoriaService: CategoriaService
   ) { }
 
   ngOnInit() {
+    this.id = this.router.snapshot.paramMap.get('id') || '';
     this.form = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -41,24 +46,30 @@ export class AlterProductComponent  implements OnInit {
         Validators.required
       ]),
     });
-    this.id = this.router.snapshot.paramMap.get('id') || '';
     this.productoService.doGet(this.id).then((res: any) => {
       this.producto = res.data;
-      console.log(res);
+    });
+    this.categoriaService.doGetAll().then((res: any) => {
+      this.categorias = res.data;
     });
   }
 
   onUpdate(){
-    console.log(this.detalle);
-    console.log(this.categoria);
-    // this.producto.nombre = this.nombre;
-    // this.producto.precio = this.precio;
-    // this.producto.detalle = this.detalle;
-    // this.producto.categoria = this.categoria;
-    // this.productoService.doPut(this.producto).then((res: any) => {
-    //   console.log('Actualizado: ', res);
-    // })
-    // this.route.navigate(['/products']);
+    this.producto.nombre = this.nombre;
+    this.producto.precio = this.precio;
+    this.producto.detalle = this.detalle;
+    console.log(this.producto);
+    this.producto.categoria = Number(this.categoria);
+    console.log(this.producto);
+    this.productoService.doPut(this.producto, this.producto.id).then((res: any) => {
+      if(res.status === '200'){
+        console.log('Actualizado: ', res.status);
+      } else {
+        console.log('Estado: ', res.status);
+        console.log('Mensaje: ', res.error.message);
+      }
+    });
+    this.route.navigate(['/products']);
   }
 
 }

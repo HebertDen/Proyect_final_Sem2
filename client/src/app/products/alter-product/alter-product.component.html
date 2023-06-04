@@ -72,22 +72,14 @@
       <h2 class="title-categories">Categor&iacute;as</h2>
       <ion-radio-group
         name="categoria"
-        value="{{ producto.categoria }}"
         [allowEmptySelection]="true"
         [(ngModel)]="categoria"
         formControlName="categoria"
+        *ngFor="let item of categorias"
       >
         <div>
-          <ion-radio value="1"></ion-radio>
-          <ion-label>Camisetas</ion-label>
-        </div>
-        <div>
-          <ion-radio value="2"></ion-radio>
-          <ion-label>Camisas</ion-label>
-        </div>
-        <div>
-          <ion-radio value="3"></ion-radio>
-          <ion-label>Pantalones</ion-label>
+          <ion-radio value="{{ item.id }}"></ion-radio>
+          <ion-label>{{ item.nombre }}</ion-label>
         </div>
       </ion-radio-group>
       <div *ngIf="form.controls['categoria'].errors">

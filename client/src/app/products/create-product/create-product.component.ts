@@ -45,7 +45,7 @@ export class CreateProductComponent  implements OnInit {
     this.producto.nombre = this.nombre;
     this.producto.precio = this.precio;
     this.producto.detalle = this.detalle;
-    this.producto.categoria = this.categoria;
+    this.producto.categoria = Number(this.categoria);
     console.log(this.producto);
     this.productService.doPost(this.producto).then((res: any) => {
       console.log('Info: ', res );

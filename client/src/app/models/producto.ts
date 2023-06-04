@@ -1,7 +1,7 @@
 // import { Categoria } from './categoria';
 
 export class Producto {
-    public id?: number;
+    public id!: number;
     public nombre: string = '';
     public precio: number = 0;
     public detalle: string = '';
@@ -12,7 +12,7 @@ export class Producto {
         this.nombre = data.nombre;
         this.precio = data.precio;
         this.detalle = data.detalle;
-        this.categoria = data.categoria_id;
+        this.categoria = data.categoria;
     }
 
 }
