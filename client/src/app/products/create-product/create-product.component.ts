@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Producto } from 'src/app/models/producto';
 import { ProductoService } from 'src/app/services/producto.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CategoriaService } from 'src/app/services/categoria.service';
+import { Categoria } from 'src/app/models/categoria';
 
 @Component({
   selector: 'app-create-product',
@@ -17,13 +19,16 @@ export class CreateProductComponent  implements OnInit {
   public precio: number = 0;
   public detalle: string = '';
   public categoria: number = 0;
+  public categorias!: Array<Categoria>;
 
   constructor(
     private route: Router,
-    public productService: ProductoService
+    public productoService: ProductoService,
+    public categoriaService: CategoriaService
   ) { }
 
   ngOnInit() {
+    this.categories();
     this.form = new FormGroup({
       nombre: new FormControl('', [
         Validators.required,
@@ -41,13 +46,19 @@ export class CreateProductComponent  implements OnInit {
     });
   }
 
+  categories(){
+    this.categoriaService.doGetAll().then((res: any) => {
+      this.categorias = res.data;
+    });
+  }
+
   onCreate(){
     this.producto.nombre = this.nombre;
     this.producto.precio = this.precio;
     this.producto.detalle = this.detalle;
     this.producto.categoria = Number(this.categoria);
     console.log(this.producto);
-    this.productService.doPost(this.producto).then((res: any) => {
+    this.productoService.doPost(this.producto).then((res: any) => {
       console.log('Info: ', res );
     });
     this.route.navigate(['/products']);

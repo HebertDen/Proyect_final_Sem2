@@ -31,15 +31,25 @@ export class AlterInvoceComponent implements OnInit {
   }
 
   onUpdate(id: any) {
-    this.articuloEliminado = {};
-    this.facturaService.doPut(this.factura, id).then((res: any) => {
-      if (res.status === '200') {
-        console.log('Actualizado: ', res.messsage);
-        console.log('Actualizado1: ', res);
-      } else {
-        console.log(res.message);
-      }
-    });
+    if(!this.factura.articulos || this.factura.total === 0 ){
+      this.facturaService.doDelete(this.id).then((res: any) => {
+        if(res.status === 204){
+          console.log('Eliminado: ', res.status);
+        } else {
+          console.log('Error: ', res.error.message);
+        }
+      });
+    } else {
+      this.articuloEliminado = {};
+      this.facturaService.doPut(this.factura, id).then((res: any) => {
+        if (res.status === '200') {
+          console.log('Actualizado: ', res.messsage);
+          console.log('Actualizado1: ', res);
+        } else {
+          console.log(res.message);
+        }
+      });
+    }
     this.route.navigate(['/home']);
   }
 

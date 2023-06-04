@@ -8,7 +8,7 @@ import { FacturaService } from 'src/app/services/factura.service';
   templateUrl: './list-invoces.component.html',
   styleUrls: ['./list-invoces.component.scss'],
 })
-export class ListInvocesComponent  implements OnInit {
+export class ListInvocesComponent implements OnInit {
 
   public facturas: Array<Factura> = [];
   public cantidad: number = 0;
@@ -19,18 +19,35 @@ export class ListInvocesComponent  implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.facturaService.doGetCount().then((res: any) => {
-      this.cantidad = res.data.count;
-    })
+    this.countInvoces();
     this.facturaService.doGetAll().then((res: any) => {
       this.facturas = res.data;
-    })
+    });
   }
-  onDelete(id: string){
+
+  countInvoces() {
+    this.facturaService.doGetCount().then((res: any) => {
+      this.cantidad = res.data.count;
+    });
+  }
+
+  onDelete(id: string) {
+    const indice = this.facturas.findIndex((valorActual: any, index: any, array: any[]) => {
+      if (valorActual.id === id) {
+        return true;
+      }
+      return false;
+    });
+    console.log('Indice: ', indice);
+    this.facturas.splice(indice, 1);
     this.facturaService.doDelete(id).then((res: any) => {
       console.log('Eliminada: ', res.status);
     });
-    this.route.navigate(['/home']);
+    if (this.facturas.length === 0) {
+      this.cantidad = 0;
+    } else {
+      this.cantidad--;
+    }
   }
 
 }

@@ -91,6 +91,7 @@ export class CreateInvoceComponent implements OnInit {
     let item: Item = new Item();
     item.detalle = detalle;
     item.valor_unitario = precio;
+    console.log('Producto: ' + item.detalle + ', insertado.');
     this.arrayAux.push(item);
   }
 
