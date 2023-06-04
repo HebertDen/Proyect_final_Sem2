@@ -11,29 +11,26 @@
       <h1>Crear factura</h1>
     </ion-label>
   </div>
-  <div id="record">
-    <div>
-      <div>
-        <ion-label>Subtotal:</ion-label>
-        <ion-label>COP&#36;{{ factura.subtotal }}</ion-label>
-      </div>
-    </div>
-    <div>
-      <ion-label>Total:</ion-label>
-      <ion-label>COP&#36;{{ factura.total }}</ion-label>
-    </div>
-  </div>
   <div class="subtitle">
     <h2>Productos</h2>
   </div>
   <div *ngFor="let producto of productos">
     <ion-card>
       <ion-card-header>
-        <ion-card-subtitle> Precio: COP&#36;{{ producto.precio }} </ion-card-subtitle>
+        <ion-card-subtitle>
+          Precio: COP&#36;{{ producto.precio }}
+        </ion-card-subtitle>
         <ion-card-title>{{ producto.nombre }}</ion-card-title>
-        <ion-button color="success" (click)="onCart(producto.detalle, producto.precio)"
+        <ion-button
+          color="success"
+          (click)="onCart(producto.detalle, producto.precio)"
           ><ion-icon name="cart"></ion-icon
         ></ion-button>
+        <div *ngFor="let dato of arrayCantidad">
+          <div>
+            <ion-label>Cantidad: {{ dato.cantidad }}</ion-label>
+          </div>
+        </div>
       </ion-card-header>
     </ion-card>
   </div>

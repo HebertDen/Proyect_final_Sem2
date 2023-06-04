@@ -1,7 +1,7 @@
 import { Item } from "./item";
 
 export class Factura {
-  public id: string = "";
+  public id!: string;
   public numero: number = 0;
   public fecha: string = "";
   public hora: string = "";
